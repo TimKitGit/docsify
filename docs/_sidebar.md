@@ -1,6 +1,6 @@
 - [Introduction](/)
   - Personal Cabinet
-    - [Website creation](personal_cabinet.md)
+    - [Website creation](pers_cab_website_creation.md)
   - [Transport&Authorization Level](transport_level.md)
   - [Message Purpose Level](purpose_level.md)
   - [Data Level](data_level.md)
