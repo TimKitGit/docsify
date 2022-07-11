@@ -1,4 +1,4 @@
-# Message types available in the system
+# Message types
 
 | Message type | Description                              |
 |--------------|------------------------------------------|
@@ -7,16 +7,13 @@
 | Error        | server response in case of service error |
 
 ## Request
-```
-{
-/// Request type
-    "Type":"string",
-/// Business content
-    "Payload":"object",
-/// Priority (not required)
-    "Priority":"string"
-}
-```
+**Payload structure**
+
+| Parameter | Required     | Type   | Description                                          |
+|-----------|--------------|--------|------------------------------------------------------|
+| Type      | required     | string | [Request type](#Request-types)                       |
+| Payload   | required     | object | Business content depends on [API Method](api/api.md) |
+| Priority  | not required | string | [Operation priority](#Priorities)                    |
 
 ### Request types
 - Pay
@@ -32,23 +29,22 @@
 
 
 ## Response
-```
-{
-/// Request processing result code
-    "ResultCode":"string",
-/// Result object 
-    "Result":"object",
-/// Request processing result error (If the request resulted in an error)
-    "Error":"Error"
-}
-```
+
+**Payload structure**
+
+| Parameter                        | Required     | Type            | Description                                                            |
+|----------------------------------|--------------|-----------------|------------------------------------------------------------------------|
+| ResultCode                       | required     | string          | Request processing result code                                         |
+| Result object                    | not required | object          | Result object depends on [API Method](api/api.md)                      |
+| Request processing result error  | not required | [Error](#Error) | Request processing result error (If the request resulted in an error)  |
+
 
 ## Error
-```
-{
-/// Error 
-    "Code":"string",
-/// Error description
-    "Message":"string"
-}
-```
+**Error DTO Structure**
+
+| Parameter   | Required     | Type   | Description       |
+|-------------|--------------|--------|-------------------|
+| Code        | required     | string | Error code        |
+| Description | not required | string | Error Description |
+
+[Go back to Interaction Protocol](interaction_protocol.md#message-purpose-level)

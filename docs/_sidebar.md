@@ -4,9 +4,6 @@
   - [Adding terminals](pers_cab_add_terminal.md)
   - [Adding routes](pers_cab_route_creation.md)  
 - [Interaction Protocol](interaction_protocol.md)
-  - [Transport&Authorization Level](transport_level.md)
-  - [Message Purpose Level](purpose_level.md)
-  - [Data Level](data_level.md)
   - [Signature construction algorithm](signatur_alghoritm.md)
   - [Message types](message_types.md)
 - API

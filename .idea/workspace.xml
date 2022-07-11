@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f47ed090-0803-4ef7-b092-1ace713cb655" name="Changes" comment="- add connection process description">
-      <change afterPath="$PROJECT_DIR$/docs/api/Pay.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/api/errors.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/api/pay.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/api/statuses.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/pers_cab_add_terminal.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/pers_cab_route_creation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="f47ed090-0803-4ef7-b092-1ace713cb655" name="Changes" comment="- add routes&#10;- add statuses&#10;- add errors">
+      <change afterPath="$PROJECT_DIR$/docs/api/api.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/api/dto.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_sidebar.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sidebar.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/images/connection_process.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/images/connection_process.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/api/pay.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/pay.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/interaction_protocol.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/interaction_protocol.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pers_cab_website_creation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pers_cab_website_creation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/message_types.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/message_types.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/transport_level.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,19 +30,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Projects/mobile&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Projects/docsify",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\toolzo-api\docs" />
@@ -136,7 +131,7 @@
       <workItem from="1656938919685" duration="7522000" />
       <workItem from="1657193288257" duration="4109000" />
       <workItem from="1657532536973" duration="136000" />
-      <workItem from="1657532727863" duration="13313000" />
+      <workItem from="1657532727863" duration="19400000" />
     </task>
     <task id="LOCAL-00001" summary="-created main template">
       <created>1653478855520</created>
@@ -166,7 +161,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655908271841</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- add routes&#10;- add statuses&#10;- add errors">
+      <created>1657548403490</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657548403490</updated>
+    </task>
+    <task id="LOCAL-00006" summary="- add routes&#10;- add statuses&#10;- add errors">
+      <created>1657548457630</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657548457630</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- add routes&#10;- add statuses&#10;- add errors">
+      <created>1657548472925</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657548472925</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +207,7 @@
     <MESSAGE value="-add message types" />
     <MESSAGE value="- add personal cabinet credentials" />
     <MESSAGE value="- add connection process description" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add connection process description" />
+    <MESSAGE value="- add routes&#10;- add statuses&#10;- add errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add routes&#10;- add statuses&#10;- add errors" />
   </component>
 </project>

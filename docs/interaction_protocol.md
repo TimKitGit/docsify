@@ -1,166 +1,87 @@
 # Interaction Protocol
 Here you can find information about our interaction protocol.
 Our API interaction protocol is implemented as a nested container with three levels:
-- [Transport&Authorization Level](transport_level.md) This level contains authorization data and is configured depending on the selected data transfer protocol.
-- [Message Purpose Level](purpose_level.md) This level contains information about the purpose of the message (our system supports several [message types](message_types.md))
-- [Data Level](data_level.md) This level contains information about the business content of the message.
+- [Transport&Authorization Level](#Transport-Level) This level contains authorization data and is configured depending on the selected data transfer protocol.
+- [Message Purpose Level](#Message-Purpose-Level) This level contains information about the purpose of the message (our system supports several [message types](message_types.md))
+- [Data Level](#Data-Level) This level contains information about the business content of the message.
 
 
 ![Layers](images/layers.png "Layers")
 
-### Общее сообщение (GeneralMessage)
-```
-{
-/// Тип сообщения
-    "Type":"string", 
-/// уникальный идентификатор сообщения
-    "CorrelationId":"string",
-/// Время сообщения в формате ISO 8601 "2012-03-21T05:40Z" "TimeStamp":"date",
-/// Необязательный параметр может присутствовать только в сообщениях типа Request
-/// время жизни сообщения если оно попадает в очередь.
-/// формат [d.]h:mm:ss[.fffffff]
-/// d - Необязательное число дней
-/// h - Количество часов в диапазоне от "0" до "23"
-/// mm - Количество минут в диапазоне от "00" до "59"
-/// ss -  Количество секунд в диапазоне от "00" до "59"
-/// fffffff - Необязательная доля секунды
-    "TTL":"Timespan",
-/// Необязательный параметр может присутствовать только в сообщениях типа Response
-/// Время выполнения запроса "ExecutionDuration":"Timespan",
-/// Структура зависит от типа сообщения
-    "Payload":"object"
-}
-```
-### Типизированные сообщения
-Доступные типы сообщений
+To interact with the system is used HTTP protocol.  
+The payment API is asynchronous, it accepts HTTP POST JSON data and returns JSON data.  
+Connections are always secured via SSL both in test and production mode. Be sure to set Content-type: application/json in your headers.
+For access to our test and production API you need to have **API Key** and **Secret** for every account (website).
+> :bulb: **ApiKey** and **hmacKey** you can become in your [Personal Cabinet](pers_cab_website_creation.md)
 
-| Тип сообщения          | Описание                                                                                      |
-|------------------------|-----------------------------------------------------------------------------------------------|
-| Request                | запрос на выполнение какого либо сервиса системы                                              |
-| Response               | ответ системы                                                                                 |
-| Event                  | события системы передаваемые клиенту (не реализовано) скорее всего будет реализация в виде кб |
-| Auth                   | запрос авторизации                                                                            |
-| AuthResult             | ответ на авторизацию                                                                          |
-| ReAuth                 | авторизация по токену, получаемого при авторизации                                            |
-| ReAuthResult           | ответ на операцию авторизации по токену                                                       |
-| Logout                 | выход из авторизированной сессии, и удаления токена                                           |
-| SessionProlongate      | запрос на продление сессии (не реализовано)                                                   |
-| SessionValidate        | проверка сессии (не реализовано)                                                              |
-| RequireConfirm         | требуется подтверждение                                                                       |
-| ConfirmOperation       | подверждающая операция                                                                        |
-| CancelConfirmOperation | операция, отменяющая подтверждение                                                            |
-| RenewConfirmationCode  | операция, обновляющая подтверждение                                                           |
-| Error                  | ответ сервера в случае ошибки на любой запрос пользователя                                    |
+## Transport Level
 
-#### Структуры типов сообщений
-##### Request
-```
-{
-/// тип
-    "Type":"string",
-/// зависит от типа
-    "Payload":"object",
-/// необязательное приоритет обработки
-/// может принимать значения
-/// Low
-/// Normal
-/// High
-    "Priority":"string"
-}
-```
-##### Response
-```
-{
-/// результат обработки запроса
-    "ResultCode":"string",
-/// Объект результата
-    "Result":"object",
-/// если результата выполнения ошибка
-    "Error":"Error"
-}
-```
-##### Event
-```
-{
-/// тип
-    "Type":"string",
-/// зависит от типа
-    "Payload":"object"
-}
-```
-##### Error
-```
-{
-/// код ошибки
-    "Code":"string",
-/// описание ошибки
-    "Message":"string"
-}
-```
-## Специальные сообщения
-### Авторизация
-#### Запрос:
-```
-{
-    "Login":"string",
-    "Password":"b64string",
-    "DeviceId":"string",
-    "Encrypted":"bool",
-    "PublicKey":"b64string"
-}
-```
-#### Ответ:
-```
-{
-/// ключ шифрования
-    "EncryptedKey":"b64string",
-    "HOTPKey":"b64string",
-    "TokenId":"string",
-    "SessionId":"string",
-    "SessionExpire":"Timespan",
-    "SessionExpireDate":"date",
-    "ServerTime":"date"
-}
-```
-### Реавторизация
-#### Запрос:
-```
-{
-    "Login":"string",
-    "TokenId":"string",
-    "HOTP":"string",
-    "Encrypted":"bool",
-    "PublicKey":"b64string"
-}
-```
-#### Ответ:
-```
-{
-/// ключ шифрования
-    "EncryptedKey":"b64string",
-/// вектор инициализации
-    "InitializationVector":"b64string",
-    "SessionId":"string",
-    "SessionExpire":"Timespan",
-    "SessionExpireDate":"date",
-    "ServerTime":"date",
-}
-```
-### Алгоритм шифрования
-AES 256 GCM  
-Шифрование доступно только при использовании RSA ключей.
+Transport level has next parameters:
 
-### Алгоритм построения подписи
-Для осуществления запросов в BroPay API необходимо обладать следующими данными:
+| Parameter                            | Required     | Type       | Description                                             |
+|--------------------------------------|--------------|------------|---------------------------------------------------------|
+| ApiKey                               | required     | string     | Merchant's website API Key                              |
+| Payload                              | required     | b64string  | [Message Purpose Level Payload](#Message-Purpose-Level) |
+| [Signature](signatur_alghoritm.md)   | required     | b64string  | Message signature                                       |
+| Encrypted                            | not required | bool       | Flag that the message is encrypted                      |
+| EncryptedKey                         | not required | b64string  | Secret                                                  |
+| AuthenticationTag                    | not required | b64string  | Authentication tag                                      |
 
-- apiKey - идентификатор ключа пользователя для осуществления запросов в BroPay API;
-- hmacKey - секрет ключа пользователя (для каждого apiKey свой).
+> :bulb: You need to use the special [signature construction algorithm](signatur_alghoritm.md).
 
-Оба параметра создаются при заведении API пользователя.  
-Далее при формировании подписи необходимо руководствоваться следующим алгоритмом:
+## Message Purpose Level
 
-1. Сформировать сообщение в формате JSON в виде строки UTF-8;
-2. Превратить hmacKey из Base64-строки в байтовый массив;
-3. Сформировать подпись с помощью HMAC-алгоритма на основе отправляемого сообщения (1) и секрета (2);
-4. Подпись (3) превратить в Base64-строку;
-5. Указать полученную подпись (4) в поле Signature отправляемого сообщения.
+Message Purpose Level has next parameters:
+
+| Parameter           | Required     | Type     | Description                                                   |
+|---------------------|--------------|----------|---------------------------------------------------------------|
+| Type                | required     | string   | [Message Type](message_types.md#message-types)                |
+| CorrelationId       | required     | string   | Unique message identifier                                     |
+| TTL*                | not required | Timespan | Message time in ISO 8601 format "2012-03-21T05:40Z"           |
+| ExecutionDuration** | required     | bool     | Request execution time in ISO 8601 format "2012-03-21T05:40Z" |
+| Payload             | required     | object   | [Data Level](#Data-Level) Payload                             |
+
+* **TTL** - optional parameter can be present only in Request type messages, lifetime of the message if it gets into the queue.
+Format [d.]h:mm:ss[.fffffff], where: 
+- d - Optional number of days
+- h - Number of hours in the range from "0" to "23"
+- mm - Number of minutes in the range from "00" to "59"
+- ss - The number of seconds in the range from "00" to "59"
+- fffffff - fraction of a second, optional
+
+** **Execution duration** - optional parameter can be present only in Response type messages
+
+## Data Level
+Data level payload depends on [message Type](message_types.md#message-types)
+
+## Example
+**Secret:**
+````
+Ea/Xgv1VsNKapLPx8I9yvxN3TjpnBankwkKjh/GVLo7DP3rVNxTWf9qUJOUuo7uFLQhs9Z9XZA1sAc0GDt2NAw==
+````
+**Base data**
+````JSON
+{
+  "Type": "Request",
+  "CorrelationId": "f8c04bbe-4303-4bb3-929e-7a473aa5e3aa",
+  "TimeStamp": "2021-06-04T16:05:37+03:00",
+  "TTL": "00:00:45",
+  "Payload": {
+    "Type": "test",
+    "Priority": "Normal",
+    "Payload": {
+      "ExtId": "test",
+      "MD": "test"
+    }
+  }
+}
+````
+
+**Prepared request**
+````JSON
+{
+  "ApiKey": "8ea2f7108d294bbc9d4db34ec0d31976",
+  "Payload": "eyJUeXBlIjoiUmVxdWVzdCIsIkNvcnJlbGF0aW9uSWQiOiJmOGMwNGJiZS00MzAzLTRiYjMtOTI5ZS03YTQ3M2FhNWUzYWEiLCJUaW1lU3RhbXAiOiIyMDIxLTA2LTA0VDE2OjA1OjM3KzAzOjAwIiwiVFRMIjoiMDA6MDA6NDUiLCJQYXlsb2FkIjp7IlR5cGUiOiJ0ZXN0IiwiUHJpb3JpdHkiOiJOb3JtYWwiLCJQYXlsb2FkIjp7IkV4dElkIjoidGVzdCIsIk1EIjoidGVzdCJ9fX0=",
+  "Signature": "8WjXqlpOIzGk0Prpod97pGaiNTM="
+}
+````
