@@ -1,3 +1,13 @@
+# Interaction Protocol
+Here you can find information about our interaction protocol.
+Our API interaction protocol is implemented as a nested container with three levels:
+- [Transport&Authorization Level](transport_level.md) This level contains authorization data and is configured depending on the selected data transfer protocol.
+- [Message Purpose Level](purpose_level.md) This level contains information about the purpose of the message (our system supports several [message types](message_types.md))
+- [Data Level](data_level.md) This level contains information about the business content of the message.
+
+
+![Layers](images/layers.png "Layers")
+
 ### Общее сообщение (GeneralMessage)
 ```
 {

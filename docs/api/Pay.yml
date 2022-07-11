@@ -1,0 +1,106 @@
+openapi: 3.0.1
+info:
+  title: BroPay API
+  description: API содержит описание методов системы BroPay
+  version: 1.0.8
+  x-logo:
+    url: 'https://conf.bropay.ru/download/attachments/12617236/logo.svg?api=v2'
+    altText: Toolzo
+    backgroundColor: 000
+servers:
+- url: http://apidomen/api/v1,
+       https://apidomen/api/v1 
+  description: "Актуальный домен уточняется у менеджера"
+paths:
+  /pay:
+    post:
+      summary: "Списание с карты"
+      operationId: Pay
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayRequest'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayResponse'             
+components:                
+  schemas:  
+    PayRequest:
+      description: "Параметры запроса"
+      required:
+        - ExtId
+        - Amount
+        - ReturnUrl
+        - Currency
+        - CardInfo
+      type: object
+      properties:  
+        ExtId:
+          type: string
+          description: "Уникальный идентификатор операции со стороны Мерчанта"
+          example: "new_T_2"
+        Amount:
+          type: integer
+          format: int64
+          description: "Сумма, указанная в минимальных единицах валюты"
+          example: 158700
+        ReturnUrl:
+          type: string
+          description: "Url адрес, по которому мерчант будет перенаправлен после завершения операции."
+          example: "https://yandex.ru"  
+        Description:
+          type: string
+          description: "Краткое описание"
+          example: "DEBIT"  
+        Currency:
+          type: string
+          description: "Валюта операции"
+          example: "RUB"
+        CardInfo:
+          required:
+            - CardNumber
+            - CardHolder
+            - ExpirationYear
+            - ExpirationMonth
+            - Cvv
+          type: object
+          description: "Данные карты"
+          properties:     
+            CardNumber:
+              type: string
+              description: "Номер карты"
+              example: "4111111111111111"
+            CardHolder:
+              type: string
+              description: "Держатель карты"
+              example: "CARDHOLDER"
+            ExpirationYear:
+              type: string
+              description: "Год истечения срока действия карты"
+              example: "2024"
+            ExpirationMonth:
+              type: string
+              description: "Месяц истечения срока действия карты"
+              example: "12"
+            Cvv:
+              type: string
+              description: "Код проверки подлинности карты"
+              example: "736"    
+    PayResponse:
+      description: "Параметры ответа"
+      type: object
+      properties:  
+        OrderId:
+          type: integer
+          format: int64
+          description: "Уникальный номер заявки в платежной системе"
+          example: 3694
+        PaymentUrl:
+          type: string
+          description: "Url адрес, по которому мерчанту необходимо перейти для продолжения процесса оплаты"

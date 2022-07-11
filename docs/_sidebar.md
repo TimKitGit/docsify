@@ -1,10 +1,17 @@
 - [Introduction](/)
-  - Personal Cabinet
-    - [Website creation](pers_cab_website_creation.md)
+- Personal Cabinet
+  - [Website creation](pers_cab_website_creation.md)
+  - [Adding terminals](pers_cab_add_terminal.md)
+  - [Adding routes](pers_cab_route_creation.md)  
+- [Interaction Protocol](interaction_protocol.md)
   - [Transport&Authorization Level](transport_level.md)
   - [Message Purpose Level](purpose_level.md)
   - [Data Level](data_level.md)
   - [Signature construction algorithm](signatur_alghoritm.md)
-- Reference information
   - [Message types](message_types.md)
+- API
+  - Methods
+    - [Pay](api/pay.md)
+  - [Errors](api/errors.md)
+  - [Statuses](api/statuses.md)
 - [Version](version.md)
