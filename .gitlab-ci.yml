@@ -1,0 +1,33 @@
+image: node
+
+stages:
+  - build-image
+  - deploy
+
+variables:
+  IMAGE: docsify
+  BUILD: $CI_PIPELINE_IID
+  VERSION: $CI_PIPELINE_ID
+
+build-imgae:
+  stage: build-image
+  image: docker
+  tags:
+    - docker
+  script:
+    - docker build -t hub.bropay.ru/$IMAGE .
+    - docker login hub.bropay.ru -u="bropay" -p="$HUB_BROPAY"
+    - docker push hub.bropay.ru/$IMAGE
+    - docker tag hub.bropay.ru/$IMAGE hub.bropay.ru/$IMAGE:$BUILD
+    - docker push hub.bropay.ru/$IMAGE:$BUILD
+    - docker rmi hub.bropay.ru/$IMAGE hub.bropay.ru/$IMAGE:$BUILD
+
+deploy:
+  stage: deploy
+  variables:
+    upstremName: $CI_PROJECT_NAME
+    commitId: $CI_COMMIT_SHORT_SHA
+    imageNames: $IMAGE
+    tag: $CI_PIPELINE_IID
+  trigger:
+    project: bro/sal3/tools/deployupdate
