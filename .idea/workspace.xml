@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f47ed090-0803-4ef7-b092-1ace713cb655" name="Changes" comment="- add routes&#10;- add statuses&#10;- add errors">
-      <change afterPath="$PROJECT_DIR$/docs/api/api.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/api/dto.md" afterDir="false" />
+    <list default="true" id="f47ed090-0803-4ef7-b092-1ace713cb655" name="Changes" comment="CI/CD">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/toolzo-api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/_sidebar.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sidebar.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/api/api.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/api.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/api/dto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/dto.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/api/errors.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/errors.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/api/pay.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/pay.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/api/statuses.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/statuses.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/interaction_protocol.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/interaction_protocol.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/message_types.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/message_types.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/transport_level.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pers_cab_add_terminal.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pers_cab_add_terminal.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pers_cab_website_creation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pers_cab_website_creation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/purpose_level.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/purpose_level.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +48,8 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Projects/docsify",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -50,6 +59,7 @@
       <recent name="C:\Projects\tlzapi\docs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="C:\Projects\toolzo-api\docs\images" />
       <recent name="C:\Projects\toolzo-api\docs" />
       <recent name="C:\Projects\tlzapi\docs" />
@@ -84,6 +94,15 @@
       <option name="jdkPath" value="" />
       <option name="language" value="java" />
       <option name="specificationPath" value="C:\Projects\toolzo-api\docs\_apiMethods\pay.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="Docsufy" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
       <method v="2" />
     </configuration>
   </component>
@@ -132,6 +151,7 @@
       <workItem from="1657193288257" duration="4109000" />
       <workItem from="1657532536973" duration="136000" />
       <workItem from="1657532727863" duration="19400000" />
+      <workItem from="1657641407175" duration="617000" />
     </task>
     <task id="LOCAL-00001" summary="-created main template">
       <created>1653478855520</created>
