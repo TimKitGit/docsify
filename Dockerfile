@@ -1,4 +1,3 @@
-FROM quintoandar/docsify
+FROM littlstar/docker-docsify
 
 ADD /docs/ .
-COPY /nginx.conf /etc/nginx/conf.d/default.conf

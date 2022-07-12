@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f47ed090-0803-4ef7-b092-1ace713cb655" name="Changes" comment="CI/CD">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/toolzo-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/configure" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sidebar.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sidebar.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/api/api.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/api.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/api/dto.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/dto.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/api/errors.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/errors.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/api/pay.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/pay.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/api/statuses.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/api/statuses.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/interaction_protocol.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/interaction_protocol.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/message_types.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/message_types.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pers_cab_add_terminal.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pers_cab_add_terminal.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pers_cab_website_creation.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pers_cab_website_creation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/purpose_level.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/purpose_level.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +22,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29Z2uVli58UuJX09Nr7xKSLuf4E" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -151,7 +142,7 @@
       <workItem from="1657193288257" duration="4109000" />
       <workItem from="1657532536973" duration="136000" />
       <workItem from="1657532727863" duration="19400000" />
-      <workItem from="1657641407175" duration="617000" />
+      <workItem from="1657641407175" duration="2231000" />
     </task>
     <task id="LOCAL-00001" summary="-created main template">
       <created>1653478855520</created>
@@ -202,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657548472925</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="CI/CD">
+      <created>1657642087215</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657642087215</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +226,7 @@
     <MESSAGE value="- add personal cabinet credentials" />
     <MESSAGE value="- add connection process description" />
     <MESSAGE value="- add routes&#10;- add statuses&#10;- add errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add routes&#10;- add statuses&#10;- add errors" />
+    <MESSAGE value="CI/CD" />
+    <option name="LAST_COMMIT_MESSAGE" value="CI/CD" />
   </component>
 </project>
