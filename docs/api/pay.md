@@ -49,4 +49,7 @@ Response body schema: application/json
 }
 ```
 
-[List of possible errors](api/errors.md)
+<a href="api/Pay.yml" download>Download in YAML format</a>
+
+
+[Go back to API Methods](api/api.md)

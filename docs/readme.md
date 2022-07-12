@@ -31,4 +31,5 @@ Our interaction protocol is implemented as a nested container with three levels:
 
 More details about realization our interaction protocol on your side you can find [here](interaction_protocol.md)
 
-# Fifth step "Realize API method"
+# Fifth step "Realize API methods"
+More details about realization API methods you can find [here](api/api.md)

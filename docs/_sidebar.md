@@ -6,7 +6,7 @@
 - [Interaction Protocol](interaction_protocol.md)
   - [Signature construction algorithm](signatur_alghoritm.md)
   - [Message types](message_types.md)
-- API
+- [API](api/api.md)
   - Methods
     - [Pay](api/pay.md)
   - [Errors](api/errors.md)

@@ -33,23 +33,23 @@ Transport level has next parameters:
 
 Message Purpose Level has next parameters:
 
-| Parameter           | Required     | Type     | Description                                                   |
-|---------------------|--------------|----------|---------------------------------------------------------------|
-| Type                | required     | string   | [Message Type](message_types.md#message-types)                |
-| CorrelationId       | required     | string   | Unique message identifier                                     |
-| TTL*                | not required | Timespan | Message time in ISO 8601 format "2012-03-21T05:40Z"           |
-| ExecutionDuration** | required     | bool     | Request execution time in ISO 8601 format "2012-03-21T05:40Z" |
-| Payload             | required     | object   | [Data Level](#Data-Level) Payload                             |
+| Parameter           | Required     | Type      | Description                                                                       |
+|---------------------|--------------|-----------|-----------------------------------------------------------------------------------|
+| Type                | required     | string    | [Message Type](message_types.md#message-types)                                    |
+| CorrelationId       | required     | string    | Unique message identifier, use it for socket connections. By HTTP enter any value |
+| TTL*                | not required | Timespan  | Message time in ISO 8601 format ````"00:02:00"````                                |
+| ExecutionDuration** | required     | Timespan  | Request execution time in ISO 8601 format ````"00:02:00"````                      |
+| Payload             | required     | object    | [Data Level](#Data-Level) Payload                                                 |
 
-* **TTL** - optional parameter can be present only in Request type messages, lifetime of the message if it gets into the queue.
-Format [d.]h:mm:ss[.fffffff], where: 
-- d - Optional number of days
+**TTL** - optional parameter can be present only in Request type messages, lifetime of the message if it gets into the queue.   
+**Execution duration** - optional parameter can be present only in Response type messages
+````
+Timespan Format "h:m:s", where:
 - h - Number of hours in the range from "0" to "23"
-- mm - Number of minutes in the range from "00" to "59"
-- ss - The number of seconds in the range from "00" to "59"
-- fffffff - fraction of a second, optional
+- m - Number of minutes in the range from "00" to "59"
+- s - The number of seconds in the range from "00" to "59"
+````
 
-** **Execution duration** - optional parameter can be present only in Response type messages
 
 ## Data Level
 Data level payload depends on [message Type](message_types.md#message-types)
